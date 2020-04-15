@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="memo.css" type="text/css" />
+	</head>
+	<body>
+		<div class="memo-area">
+			<button>메모추가</button>
+			<!-- 하나의 전체 메모 표시 -->
+			<div class="memo-note">
+				<!-- bar -->
+				<div class="memo-bar">
+					<span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+				</div>
+				<!-- content -->
+				<div class="memo-edit">
+					<textarea class="memo-edit-area"></textarea>
+				</div>
+			</div>
+			
+			<div class="memo-note2">
+				<!-- bar -->
+				<div class="memo-bar">
+					<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-pushpin " aria-hidden="true" style="transform:rotate(-45deg); color:red;"></span>
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+				</div>
+				<!-- content -->
+				<div class="memo-edit" style="display:none;">
+					<textarea class="memo-edit-area""></textarea>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

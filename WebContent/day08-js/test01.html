@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- <script src="../js/jquery-3.4.1.js"></script> -->
+		<script
+		  src="https://code.jquery.com/jquery-3.4.1.js"
+		  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		  crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div id="btnGroup">
+			<button id="btn1">html</button>
+			<button id="btn2">text</button>
+			<button id="btn3">val</button>
+		</div>
+		<div><h2>테스트</h2></div>
+		<div>
+			<input type="text" id="msg"/>
+		</div>
+		<script>
+		
+			$("#btn3").click(function(){
+				$("#msg").val("abc");
+				alert($("#msg").val());
+			});
+		
+			// addEventListener("type", listener)
+			$("#btnGroup > button:first-child").on("click", function(){
+				//alert("1번 버튼 클릭됨");
+				//innerHTML = "aaaa"; //  html(); parameter 안에 값이 있으면 설정, 없으면 출력
+				//$("body > div:eq(1)").html("<h1>첫번쨰 버튼 클릭</h1>");
+				$("body > div:eq(1)").html(function(){
+					return "<h1> 첫번째 버튼 클릭 - 함수실행 결과</h1>";
+				});
+			});
+			$("#btnGroup > button:last-child").click(function(){
+				//alert("2번 버튼 클릭됨");
+				//$("body > div:eq(1)").text("<h1>두번쨰 버튼 클릭</h1>");
+				$("body > div:eq(1)").text(function(){
+					return "<h1> 두번째 버튼 클릭 - 함수실행 결과</h1>";
+				});
+			});
+			// 콘솔창에 div 엘리먼트 안에 있는 내용을 출력
+			//console.log(document.querySelector("div").innerHTML); // 태그도 같이 반환
+			//console.log(document.querySelector("div").innerText); // 태그는 제외하고 text만 가져옴
+			//console.log($("div").html());
+			//onsole.log($("div").text());
+		</script>
+	</body>
+</html>

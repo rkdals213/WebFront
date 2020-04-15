@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		 <style>
+		 #container {
+		   width: 700px;
+		   height: 500px;
+		   padding: 20px;
+		   margin: 0 auto;
+		   text-align: center;
+		}
+		button{
+		   width:90px;
+		   height:40px;
+		   border:1px solid black;
+		}
+		li{
+		   display: inline;
+		   padding:20px;
+		}
+		
+		img{
+		   width: 100px;
+		   height: 100px;
+		   opacity: 0.5;
+		   flag: false;
+		}
+		
+		[name="케이크"]{
+		   flag:true;
+		   opacity:1;
+		   border:5px solid black;
+		}
+		
+		#image{
+		   width: 200px;
+		   height: 200px;
+		   opacity: 1;
+		}
+		</style>
+	</head>
+	
+	<body>
+	<div id="container">
+		<button onclick="buttonclick();" onmouseover="mover(this)"onmouseout="dmover(this)">랜덤 선택</button>
+		<div>
+			<h3 id="menu">오늘의 메뉴 : 케이크 </h3>
+			<img id="image">
+		</div>
+	
+	 	<div id="list">
+            <ul>
+               <li><img name="케이크" id="img1" onmouseover="mover(this)"onmouseout="dmover(this)"onclick="imageClick(this)"></li>
+               <li><img name="햄버거" id="img2" onmouseover="mover(this)"onmouseout="dmover(this)"onclick="imageClick(this)"></li>
+               <li><img name="샌드위치" id="img3" onmouseover="mover(this)"onmouseout="dmover(this)"onclick="imageClick(this)"></li>
+               <li><img name="스테이크" id="img4" onmouseover="mover(this)"onmouseout="dmover(this)"onclick="imageClick(this)"></li>
+            </ul>
+	    </div>
+	</div>
+	
+
+	<script>
+	
+		var imgList = new Array();
+		imgList[0] = "cake.jpg";
+		imgList[1] = "burger.jpg";
+		imgList[2] = "sandwich.jpg";
+		imgList[3] = "steak.jpg";
+
+		document.getElementById("image").src = imgList[0];
+		document.getElementById("img1").src = imgList[0];
+		document.getElementById("img2").src = imgList[1];
+		document.getElementById("img3").src = imgList[2];
+		document.getElementById("img4").src = imgList[3];
+		
+		function buttonclick(){
+			
+			document.getElementById("image").src = imgList[index];
+			if(index==0) address = img1;
+			if(index==1) address = img2;
+			if(index==2) address = img3;
+			if(index==3) address = img4;
+			
+			changeImage(address);
+        }
+		function imageClick(func){
+			var address=func.id;
+			
+			var index=0;
+			if(address=='img1') index = 0;
+			if(address=='img2') index = 1;
+			if(address=='img3') index = 2;
+			if(address=='img4') index = 3;
+			document.getElementById("image").src = imgList[index];
+			changeImage(func);
+		}
+		
+ 		function changeImage(address){
+ 			var list = document.getElementById("list").querySelectorAll("img");
+	       	for(var i=0;i<4;i++){
+	          	list[i].style.opacity = 0.5;
+	           	list[i].style.border = "0px";
+	           	list[i].flag = false;
+	        }
+		 	address.style.border="5px solid black";
+			address.style.opacity="1"; 
+			var text = document.getElementById("menu");
+            text.innerHTML = "오늘의 메뉴: "+address.name;
+		}
+	
+		function mover(obj){
+            obj.style.opacity = 1;
+         }
+		function dmover(obj){
+            obj.style.opacity = 0.5;
+         }
+		
+	</script>
+	</body>
+</html>
