@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>adjacent sibling selector</title>
+<!-- adjacent sibling selector : 인접 형제 -->
+<style type="text/css">
+	#container {
+		width: 30%;
+		margin: auto;
+	}
+h1 + h1 {
+	background-color:blue;
+	color:white;
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<h1>Head Line 1</h1>
+		<h1>Head Line 1</h1>
+		<div>
+			<h1>Head Line 1 : in div</h1>
+		</div>
+		<h1>Head Line 1</h1>
+		<h1>Head Line 1</h1>
+		<h1>Head Line 1</h1>
+	</div>
+</body>
+</html>

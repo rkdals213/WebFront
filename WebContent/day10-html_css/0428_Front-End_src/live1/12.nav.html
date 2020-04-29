@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Navigation</title>
+<link rel="stylesheet" type="text/css" href="12.header.css" />
+<link rel="stylesheet" type="text/css" href="12.body_index.css" />
+<link rel="stylesheet" type="text/css" href="12.footer.css" />
+<style>
+	.header_title_en, .header_title_ko {
+		color: brown;
+		text-align: center;
+		line-height: 30px;
+		font-size: 35px;
+		font-weight: bold;
+	}
+	.header_title_ko {
+		line-height: 70px;
+		font-size: 20px;
+	}
+	.ul_nav, .ul_header {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	.li_nav_left {
+		float: left;
+	}
+	.li_header_right {
+		float: right; font-size: 15px;
+	}
+	.li_nav_left a, .li_header_right a {
+		display: block;
+		color: brown;
+		text-align: center;
+		padding: 8px;
+		text-decoration: none;
+	}
+	.li_nav_left a:hover {
+		background-color: #dfbf9f;
+	}
+	.li_header_right a:hover {
+		color: #dfbf9f;
+	}
+</style>
+</head>
+<body>
+
+	<div id="container">
+		<header>
+			<ul class="ul_header">
+				<li class="li_header_right"><a href="#">SignUp</a></li>
+				<li class="li_header_right"><a href="#">Login</a></li>
+			</ul>
+			<div class="header_title_en">Happy House</div>
+			<div class="header_title_ko">행복한 우리 집</div>
+		</header>
+
+		<nav>
+			<ul class="ul_nav">
+				<li class="li_nav_left"><a href="#">Home</a></li>
+				<li class="li_nav_left"><a href="#">Notice</a></li>
+				<li class="li_nav_left"><a href="#">News</a></li>
+				<li class="li_nav_left"><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+
+		<aside>ASIDE</aside>
+		<section>
+			SECTION
+			<article>ARTICLE</article>
+			<article>ARTICLE</article>
+		</section>
+		<footer>FOOTER</footer>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>attribute selector</title>
+<!-- attribute selector : html attribute 요소에 접근. -->
+<style>
+	#container {
+		width: 30%;
+		margin: auto;
+	}
+	div[title] {
+			background-color: #ffd966;
+			height: 50px;
+			padding: 10px 10px 10px 10px;
+			margin-bottom: 10px;
+			font-size: 25px;
+			font-weight: bold;
+			border-radius: 15px;
+	}
+	div[title="AAA"] {
+		background-color:blue;
+		color:white;
+	}
+</style>
+</head>
+<body>
+	<div id="container">
+		<div title="AAA">div title=AAA</div>
+		<div title="BBB">div title=BBB</div>
+		<div>div no title</div>
+		<div title="CCC">div title=CCC</div>
+		<div title="AAA">div title=AAA</div>
+	</div>
+</body>
+</html>

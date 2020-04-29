@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Navigation_Drop</title>
+<link rel="stylesheet" type="text/css" href="13.header.css" />
+<link rel="stylesheet" type="text/css" href="12.body_index.css" />
+<link rel="stylesheet" type="text/css" href="12.footer.css" />
+<style>
+	.nav_dropdown_content {
+		display: none;
+		position: absolute;
+		background-color: #f2e6d9;
+		min-width: 58%;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	}
+	.ul_nav:hover ~ .nav_dropdown_content, .nav_dropdown_content:hover {
+		display: block;
+	}
+	.nav_dropdown_content ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		width: 150px;
+		float: left;
+	}
+	.nav_dropdown_content li a {
+		display: block;
+		padding: 8px 16px;
+		color: #cc6600;
+		font-size: 20px;
+		text-align: center;
+		text-decoration: none;
+	}
+	.nav_dropdown_content li a:hover {
+		background-color: #f9f2ec;
+	}
+</style>
+</head>
+<body>
+
+	<div id="container">
+		<header>
+			<ul class="ul_header">
+				<li class="li_header_right"><a href="#">SignUp</a></li>
+				<li class="li_header_right"><a href="#">Login</a></li>
+			</ul>
+			<div class="header_title_en">Happy House</div>
+			<div class="header_title_ko">행복한 우리 집</div>
+		</header>
+
+		<nav>
+			<ul class="ul_nav">
+				<li class="li_nav_left"><a href="#">Home</a></li>
+				<li class="li_nav_left"><a href="#">Notice</a></li>
+				<li class="li_nav_left"><a href="#">News</a></li>
+				<li class="li_nav_left"><a href="#">Contact</a></li>
+			</ul>
+			<div class="nav_dropdown_content">
+				<ul>
+					<li><a href="#">SubMenu</a></li>
+					<li><a href="#">SubMenu</a></li>
+					<li><a href="#">SubMenu</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">SubMenu</a></li>
+					<li><a href="#">SubMenu</a></li>
+					<li><a href="#">SubMenu</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">SubMenu</a></li>
+					<li><a href="#">SubMenu</a></li>
+					<li><a href="#">SubMenu</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">SubMenu</a></li>
+					<li><a href="#">SubMenu</a></li>
+					<li><a href="#">SubMenu</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<aside>ASIDE</aside>
+		<section>
+			SECTION
+			<article>ARTICLE</article>
+			<article>ARTICLE</article>
+		</section>
+		<footer>FOOTER</footer>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+footer {
+	background-color: #80aaff;
+	height: 200px;
+	padding: 1%;
+	border-radius: 15px;
+	font-size: 25px;
+	font-weight: bold;
+	clear: both;
+}

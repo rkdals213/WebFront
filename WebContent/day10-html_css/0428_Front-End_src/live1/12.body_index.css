@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+aside {
+	background-color: #ffcce6;
+	width: 20%;
+	height: 400px;
+	padding: 15px 1% 15px 1%;
+	border-radius: 15px;
+	font-size: 25px;
+	font-weight: bold;
+	margin-right: 1%;
+	margin-bottom: 10px;
+	float: left;
+}
+section {
+	background-color: #e0e0eb;
+	width: 75%;
+	height: 400px;
+	padding: 15px 1% 15px 1%;
+	border-radius: 15px;
+	font-size: 25px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	float: right;
+}
+article {
+	background-color: #c299ff;
+	margin-top: 70px;
+	height: 50px;
+	padding: 1%;
+	border-radius: 15px;
+}

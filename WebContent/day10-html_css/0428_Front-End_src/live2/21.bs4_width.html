@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bs4 width height</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container bg-secondary mt-5">
+		<div class="w-25 bg-primary">w-25</div>
+		<div class="w-50 bg-warning">w-50</div>
+		<div class="w-75 bg-primary">w-75</div>
+		<div class="w-100 bg-warning">w-100</div>
+	</div>
+	<div class="container bg-secondary mt-5 clearfix">
+		<div class="w-75">
+			<div class="w-25 bg-primary float-left">w-25</div>
+			<div class="w-25 bg-warning float-left">
+				<div class="w-25 bg-danger float-left">w-25</div>
+				<div class="w-25 bg-info float-left">w-25</div>
+				<div class="w-25 bg-danger float-left">w-25</div>
+				<div class="w-25 bg-info float-left">w-25</div>
+			</div>
+			<div class="w-25 bg-primary float-left">w-25</div>
+			<div class="w-25 bg-warning float-left">w-25</div>
+		</div>
+	</div>
+	<div class="container bg-secondary mt-5" style="height:300px;">
+		<div class="w-25 h-25 bg-primary float-left">w-25 h-25</div>
+		<div class="w-25 h-50 bg-warning float-left">w-25 h-50</div>
+		<div class="w-25 h-75 bg-primary float-left">w-25 h-75</div>
+		<div class="w-25 h-100 bg-warning float-left">w-25 h-100</div>
+	</div>
+</body>
+</html>
