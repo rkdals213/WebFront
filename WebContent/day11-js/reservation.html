@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>영화 예매</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+#optionField {
+	display: none;
+}
+</style>
+
+</head>
+
+
+<body>
+	<header>
+		<hgroup>
+			<h1>영화 예매</h1>
+			<h2>쿵푸팬더</h2>
+		</hgroup>
+	</header>
+
+	<article id="reservation">
+		<section>
+			<!-- <img id="poster" alt="쿵푸팬더 poster" src="./img/movie_image2.jpg"> -->
+		</section>
+		<section>
+			<form id="regist">
+				<fieldset id="wrapperFieldset">
+					<legend id="wrapperLegend">예매정보 입력</legend>
+					<label>상영관</label>
+					<select id="place">
+						<option>CGV</option>
+						<option>롯데시네마</option>
+						<option>메가박스</option>
+						<option>프리머스</option>
+						<option>다른극장</option>
+					</select>
+					<label>날 &nbsp;짜</label>
+					<input type="date" id="date" />
+					<br />
+					<fieldset class="innerFiledSet">
+						<legend>시간</legend>
+						<input type="radio" name="time" value="08:30" id="t1" />
+						<label for="t1">08:30</label>
+						<input type="radio" name="time" value="11:00" id="t2" />
+						<label for="t2">11:00</label>
+						<input type="radio" name="time" value="14:20" id="t3" />
+						<label for="t3">14:20</label>
+						<input type="radio" name="time" value="17:25" id="t4" />
+						<label for="t4">17:25</label>
+						<input type="radio" name="time" value="20:10" id="t5" />
+						<label for="t5">20:10</label>
+						<input type="radio" name="time" value="23:05" id="t6" />
+						<label for="t6">23:05</label>
+					</fieldset>
+
+
+					<div>
+						<label>요&nbsp;금</label>
+						<span id="priceLable" data-val="9000">W9,000</span>
+						<br>
+						<label>인&nbsp;원</label>
+						<input type="number" required="required" min="1" id='person' />
+						<br>
+						<label>금&nbsp;액</label>
+						<input type="number" readonly="readonly" id='price' />
+					</div>
+					<div>
+						<input type="checkbox" id="add">
+						<label for="add">추가</label>
+
+						<fieldset class="innerFiledSet" id="optionField">
+							<legend>옵션</legend>
+							<input type="checkbox" name="popcorn" value="5000" id="popcorn" />
+							<label for="popcorn">팝콘 W5,000</label>
+							<input type="checkbox" name="cola" value="2000" id="drink" />
+							<label for="drink">음료 W2,000</label>
+						</fieldset>
+					</div>
+				</fieldset>
+				<fieldset id="buttons">
+					<input type="reset" id="reset" value="취소">
+					<input type="submit" id="submit" value="예매">
+				</fieldset>
+			</form>
+		</section>
+	</article>
+</body>
+
+<script>
+	// 습관적으로 jquery 객체의 naming에 $ 접두사 사용
+	let $priceLabel = $("#priceLable");
+
+	function init() {
+		$("#t1").prop("checked", true);
+		$priceLabel.html("W5,000");
+		$priceLabel.attr("data-val", "5000");
+
+		$("#person").val(1);
+
+		calcPrice();
+	}
+	init();
+
+	function calcPrice() {
+		let personCnt = $("#person").val();
+		let cost = $priceLabel.attr("data-val");
+
+		$("#price").val(cost * personCnt);
+	}
+
+	$("[name='time']").on("change", function() {
+		// event call back 내에서의 this: event source (이벤트가 발생한 요소) 
+		if ($(this).val() == "08:30") {
+			$priceLabel.html("W5,000");
+			$priceLabel.attr("data-val", "5000");
+		} else {
+			$priceLabel.html("W9,000");
+			$priceLabel.attr("data-val", "9000");
+		}
+		calcPrice();
+	});
+
+	$("#person").on("change", function() {
+		calcPrice();
+	})
+
+	$("#add").on("change", function() {
+		// 옵션의 체크박스들의 체크 해지 input[type="checkbox"]
+		$("#optionField :checkbox").prop("checked", false);
+
+		if ($(this).prop("checked")) {
+			$("#optionField").css("display", "block");
+		} else {
+			$("#optionField").css("display", "none");
+		}
+	});
+
+	$("#regist").on("submit", function(e) {
+		// 이벤트 소스가 가지고 있는 기본 동작을 중지시킬 필요
+		e.preventDefault();
+
+		let info = "상영관: " + $("#place").val() + "\n";
+		info += "상영일: " + $("#date").val() + "\n";
+
+		// :checked  - check 될 수 있는 녀석들 중에서 체크 된녀석들(radio, checkbox)
+		let $time = $("[name='time']:checked")
+		info += "시각: " + $time.val() + "\n";
+
+		info += "요금: " + $("#price").val() + "\n";
+
+		let options = $("#optionField  :checkbox:checked");
+
+		if (options.length) {
+			info += "[옵션 상품]\n";
+
+			$.each(options, function(idx, item) {
+				info += $(item).attr("name") + " : " + $(item).val() + "\n";
+			})
+		}
+		alert(info);
+	});
+</script>
+</html>

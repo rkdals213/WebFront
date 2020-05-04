@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>string</title>
+</head>
+<body>
+	<h1>
+		<script>
+		document.write("myemail@mail.com.kr : indexOf(.) : " + "myemail@mail.com.kr".indexOf(".") + "<br>");
+		document.write("myemail@mail.com.kr : lastIndexOf(.) : " + "myemail@mail.com.kr".lastIndexOf(".") + "<br>");
+		document.write("myemail@mail.com.kr : indexOf(없는문자열) : " + "myemail@mail.com.kr".indexOf("없는문자열") + "<br>");
+		</script>
+		<br>
+		<script>
+		document.write("myemail@mail.com.kr : slice(2,6) : " + "myemail@mail.com.kr".slice(2,6) + "<br>");
+		document.write("myemail@mail.com.kr : substring(2,6) : " + "myemail@mail.com.kr".substring(2,6) + "<br>");
+		document.write("myemail@mail.com.kr : substr(3,6) : " + "myemail@mail.com.kr".substr(3,6) + "<br>");
+		</script>
+		<br>
+		<script>
+		document.write("myemail@mail.com.kr : replace(@,@@@) : " + "myemail@mail.com.kr".replace("@","@@@") + "<br>");
+		let strArr = "myemail@mail.com.kr".split(".");
+		for(let i=0; i<strArr.length; i++){
+			document.write("myemail@mail.com.kr : split(.) : ["+i+"] : " + strArr[i] + "<br>");
+		}
+		</script>
+		<br>
+		<script>
+		document.write("(공백) My Pass Word (공백) : trim().toUpperCase() : " + "     My Pass Word     ".trim().toUpperCase() + "<br>");
+		document.write("(공백) My Pass Word (공백) : trim().toLowerCase() : " + "     My Pass Word     ".trim().toLowerCase() + "<br>");
+		</script>
+	</h1>
+</body>
+</html>

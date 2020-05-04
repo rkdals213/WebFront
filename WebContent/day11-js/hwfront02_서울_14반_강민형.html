@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+<style>
+.center {
+	display: flex;
+	font-size : 30px;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+}
+p{	
+	height: 50px;
+	width : 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px 10px 10px 10px;
+	background-color: #ffffb2;
+	border-radius: 50%;
+}
+div{
+	background-color: #bae2ff;
+}
+</style>
+</head>
+<body>
+	<header class="center">대박을 기원합니다~~</header>
+	<div class="center">
+	</div>
+</body>
+<script>
+	var random = [];
+	for (var i = 0; i < 6; i++) {
+		random[i] = Math.floor(Math.random()*45)+1;
+	}
+	var cnt = 0;
+	var timer = setInterval(function(){
+		$("div").delay(10000).append(" <p>"+ random[cnt] +"</p>");
+		cnt++;
+		if(cnt==6){
+        clearInterval(timer);
+		}
+    },1000);
+	
+</script>
+</html>

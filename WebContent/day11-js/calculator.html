@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#calc { 
+		border: 1px solid  gray;
+		width: 350px;
+		text-align: center;	
+	}
+	#formula{
+		text-align: right;
+		width: 80%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}  
+	#resultDiv{
+		text-align: left;
+		margin-left: 40px;
+	}
+	button{
+		width:70px;
+		height:70px;
+	}
+</style>
+</head>
+<body>
+	 <div id='calc'>
+	 	<input 	type='text' id='formula' value='' 
+	 			placeholder='0.0' readonly="readonly"/>
+	 	<div id='pad'>
+	 		<button class="num">7</button>
+	 		<button class="num">8</button>
+	 		<button class="num">9</button>
+	 		<button class="oper">+</button>
+	 		<button class="num">4</button>
+	 		<button class="num">5</button>
+	 		<button class="num">6</button>
+	 		<button class="oper">-</button>
+	 		<button class="num">1</button>
+	 		<button class="num">2</button>
+	 		<button class="num">3</button>
+	 		<button class="oper">*</button>
+	 		<button class="num">0</button>
+	 		<button id="clear">CE</button>
+	 		<button id="equal">=</button>
+	 		<button class="oper">/</button>
+	 	</div>	
+	 	<div id='resultDiv'>
+	 		<h2>결과 이력</h2>
+	 		<ol id='result'>
+	 		
+	 		</ol>
+	 	</div>	
+	 </div>
+</body>
+<script>
+	let data = "123 * 34";
+	// eval은 실무에서는 절대로 사용해서는 안되는 함수입니다.  - 보안 측면에서.
+	// eval("A의 계좌에서 B의 계좌로 이체해라.")
+	//console.log(eval(data));
+	
+	// 입력은 자주 사용되더라..
+	let formula = document.querySelector("#formula");
+	
+	// 모든 num class들에 대해서... 
+	const numBtns = document.querySelectorAll(".num");
+	//numBtns = 10;
+	
+	for(let btn of numBtns){
+		btn.addEventListener("click", function(){
+			formula.value+=btn.innerHTML;
+		})
+	}
+	
+	// 모든 연산자들에 대해서...
+	let numOpers = document.querySelectorAll(".oper");
+	// let 변수의 scope: {}
+	// var 변수의 scope: 션언된 함수 - 클로저
+	
+	for(let btn of numOpers){
+		btn.addEventListener("click", function(){
+			
+			// 값이 없거나 바로 앞에 있는 텍스트가 다른 연산자라면 스킵
+			let val = formula.value;
+			let last = val.substring(val.length-1);  // + 
+			
+			// if에서 false로 평가되는 경우는???? 0, false, null, '', undefined
+			if(val && parseInt(last)){
+				formula.value+=btn.innerHTML;
+			}
+		})
+	}
+	
+	document.querySelector("#equal").addEventListener("click", function(){
+		document.querySelector("#result").innerHTML+="<li>"+formula.value+"="+eval(formula.value);
+		formula.value="";
+	});
+	
+	document.querySelector("#clear").addEventListener("click", function(){
+		formula.value="";
+	});
+</script>
+</html>
