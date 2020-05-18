@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Step1</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+   
+시도 : <select id="sido">
+   <option value="0">선택</option>
+</select>
+구군 : <select id="gugun">
+   <option value="0">선택</option>
+</select>
+<script>
+$(document).ready(function(){
+   $.get(
+      "./FSelectBoxController"
+      ,{command: 'sido'}
+      , function(data,status){
+         $.each(data,function(idx,vo){
+            let tmpStr= "<option value="+vo.sido_code+">"+vo.sido_name+"</option>";
+            $("#sido").append(tmpStr);
+         });
+      }
+      ,"json"
+   ); //SELECT sido_code, sido_name From ssafydb.sidocode;
+   $("#sido").change(function(){
+      
+      $.get(
+            "./FSelectBoxController"
+            ,{command: 'gugun', sido: $("#sido").val()}
+            , function(data,status){
+               $("#gugun").empty();
+               $("#gugun").append("<option value="+0+">선택</option>");
+               $.each(data,function(idx,vo){
+                  let tmpStr= "<option value="+vo.gugun_code+">"+vo.gugun_name+"</option>";
+                  $("#gugun").append(tmpStr);
+               });
+            }
+            ,"json"
+         );
+   });
+});
+</script>
+</body>
+</html>

@@ -21,7 +21,7 @@ public class FSelectBoxDAOImpl implements FSelectBoxDAO {
 		try {
 			conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT left(sido_code,2) sido_code, sido_name FROM sidocode \n");
+			sql.append("SELECT left(sido_code,2) sido_code, sido_name FROM ssafydb.sidocode \n");
 			sql.append("ORDER BY sido_code");
 			pstmt = conn.prepareStatement(sql.toString());
 			rs = pstmt.executeQuery();
@@ -50,7 +50,7 @@ public class FSelectBoxDAOImpl implements FSelectBoxDAO {
 		try {
 			conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT left(gugun_code,5) gugun_code, gugun_name FROM guguncode \n");
+			sql.append("SELECT left(gugun_code,5) gugun_code, gugun_name FROM ssafydb.guguncode \n");
 			sql.append("where left(gugun_code,2) = ?");
 			sql.append("ORDER BY gugun_code");
 			pstmt = conn.prepareStatement(sql.toString());
@@ -81,7 +81,7 @@ public class FSelectBoxDAOImpl implements FSelectBoxDAO {
 		try {
 			conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT distinct dong, code FROM houseinfo \n");
+			sql.append("SELECT distinct dong, code FROM ssafydb.houseinfo \n");
 			sql.append("where code = ? \n");
 			sql.append("ORDER BY dong");
 			pstmt = conn.prepareStatement(sql.toString());
@@ -112,7 +112,7 @@ public class FSelectBoxDAOImpl implements FSelectBoxDAO {
 		try {
 			conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT no,dong,AptName,code,jibun FROM houseinfo WHERE dong = ? \n");
+			sql.append("SELECT no,dong,AptName,code,jibun FROM ssafydb.houseinfo WHERE dong = ? \n");
 			sql.append("ORDER BY AptName");
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, dong);
